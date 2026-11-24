@@ -84,13 +84,13 @@ export function CertificatesSection() {
   return (
     <section
       id="credentials"
-      className="py-20 lg:py-24 border-b border-[#E4E6EA] dark:border-[#252A33] bg-[#FAFAFA] dark:bg-[#0C0E11] transition-colors duration-200"
+      className="py-20 lg:py-24 border-b border-[#E4E6EA] dark:border-[#252A33] bg-white dark:bg-[#13161B] transition-colors duration-200"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-[#E4E6EA] dark:border-[#252A33]">
           <div className="max-w-2xl">
             <p className="text-sm font-medium text-[#B5381A] dark:text-[#F06A4A] mb-2">
-              04. Verified Credentials
+              05. Verified Credentials
             </p>
             <h2
               className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7]"
@@ -198,7 +198,7 @@ export function CertificatesSection() {
             {filteredCertificates.map((cert) => (
               <article
                 key={cert.id}
-                className="bg-white dark:bg-[#13161B] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl overflow-hidden flex flex-col justify-between transition-colors duration-150 hover:border-[#B8BEC8] dark:hover:border-[#3A4150]"
+                className="bg-[#FAFAFA] dark:bg-[#0C0E11] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl overflow-hidden flex flex-col justify-between transition-colors duration-150 hover:border-[#B8BEC8] dark:hover:border-[#3A4150]"
               >
                 <button
                   type="button"

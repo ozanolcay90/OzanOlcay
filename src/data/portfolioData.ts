@@ -72,7 +72,7 @@ export const PROFILE = {
   location: 'Ankara & Çerkezköy, Türkiye',
   email: 'ozanolcay90@gmail.com',
   portraitPath: '/assets/ozan-portrait.jpg',
-  interviewDeckPdf: '/assets/aistudio/Interview_for_REM_Region_Logistics_Expert_77645802.pdf',
+  interviewDeckPdf: '/assets/aistudio/Interview_for_REM_Region_Logistics_Expert_63a3e085.pdf',
   certificatesArchiveUrl:
     'https://drive.google.com/drive/folders/1_IiDiDvj4-KIJrXgSC1JMSAU0HIVCzFc?usp=sharing',
   linkedinSearchUrl: 'https://www.linkedin.com/search/results/all/?keywords=Ozan%20Olcay%20BSH',
