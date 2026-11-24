@@ -64,6 +64,35 @@ export interface StrategicPillar {
   points: string[];
 }
 
+export type SkillDomain = 'all' | 'technical' | 'logistics';
+
+export type RadarAxisId =
+  | 'logistics-distribution'
+  | 'bi-automation'
+  | 'coding-web'
+  | 'quality-six-sigma'
+  | 'project-ba'
+  | 'enterprise-systems';
+
+export interface RadarAxisItem {
+  id: RadarAxisId;
+  labelLines: [string, string?];
+  fullLabel: string;
+  score: number;
+  domain: Exclude<SkillDomain, 'all'>;
+  evidence: string;
+}
+
+export interface SkillProficiencyItem {
+  id: string;
+  name: string;
+  domain: Exclude<SkillDomain, 'all'>;
+  domainLabel: string;
+  axisId: RadarAxisId;
+  level: number;
+  evidence: string;
+}
+
 export const PROFILE = {
   fullName: 'Ozan Olcay',
   roleTitle: 'TR Local Distribution Platform Inspector',
@@ -548,3 +577,172 @@ export const CERTIFICATES: CertificateItem[] = [
     pdfPath: '/assets/aistudio/CertificateOfCompletion_Managing_Logistics_3605e335.pdf',
   },
 ];
+
+export const SKILL_DOMAINS: { id: SkillDomain; label: string }[] = [
+  { id: 'all', label: 'All Skills' },
+  { id: 'technical', label: 'Technical Stack' },
+  { id: 'logistics', label: 'Logistics' },
+];
+
+export const RADAR_AXES: RadarAxisItem[] = [
+  {
+    id: 'logistics-distribution',
+    labelLines: ['Logistics &', 'Distribution'],
+    fullLabel: 'Logistics & Distribution',
+    score: 96,
+    domain: 'logistics',
+    evidence: 'B/S/H/ Local Distribution Platform Inspector since 2020, FTL planning, 3PL & LSP handovers.',
+  },
+  {
+    id: 'bi-automation',
+    labelLines: ['BI & Data', 'Automation'],
+    fullLabel: 'BI & Data Automation',
+    score: 94,
+    domain: 'technical',
+    evidence: 'Architected L.O.T. (600K+ rows, 233 charts) & Sirius (12 MTL annual cost avoidance) with RPA feeds.',
+  },
+  {
+    id: 'coding-web',
+    labelLines: ['In-House', 'Coding & Web'],
+    fullLabel: 'In-House Coding & Web',
+    score: 88,
+    domain: 'technical',
+    evidence: 'Bespoke audit engines, role-based mobile control towers, and custom data reconciliation tools.',
+  },
+  {
+    id: 'quality-six-sigma',
+    labelLines: ['Quality &', 'Six Sigma'],
+    fullLabel: 'Quality & Six Sigma',
+    score: 92,
+    domain: 'logistics',
+    evidence: 'PMI Six Sigma & Operational Excellence credentials; FMEA, hidden damage, and misfit auditing.',
+  },
+  {
+    id: 'project-ba',
+    labelLines: ['Project & BA', 'Governance'],
+    fullLabel: 'Project & BA Governance',
+    score: 90,
+    domain: 'logistics',
+    evidence: 'Accredited across PMI, IIBA & NASBA; led team budgets, schedules, and cross-functional discovery.',
+  },
+  {
+    id: 'enterprise-systems',
+    labelLines: ['SAP & AI', 'Systems'],
+    fullLabel: 'SAP & AI Systems',
+    score: 85,
+    domain: 'technical',
+    evidence: 'SAP RDC execution, COSMOS/MOP/LOD-DOM integration, and TAÜ-DDUAM AI supply chain training.',
+  },
+];
+
+export const SKILL_PROFICIENCIES: SkillProficiencyItem[] = [
+  {
+    id: 'ld-auditing-lsp',
+    name: 'Local Distribution Auditing & LSP Governance',
+    domain: 'logistics',
+    domainLabel: 'Logistics & Governance',
+    axisId: 'logistics-distribution',
+    level: 96,
+    evidence: 'B/S/H/ platform audits, handover discipline, and Direct WH standards',
+  },
+  {
+    id: 'power-bi-control-tower',
+    name: 'Power BI & Control Tower Analytics',
+    domain: 'technical',
+    domainLabel: 'Technical Stack',
+    axisId: 'bi-automation',
+    level: 95,
+    evidence: '233 charts across 11 live decision views processing 600K+ rows in L.O.T.',
+  },
+  {
+    id: 'kpi-tracking',
+    name: 'KPI Design & Performance Tracking',
+    domain: 'logistics',
+    domainLabel: 'Logistics & Governance',
+    axisId: 'logistics-distribution',
+    level: 95,
+    evidence: 'Home delivery KPIs, area leader control scores, and daily scorecards',
+  },
+  {
+    id: 'process-automation-rpa',
+    name: 'Process Automation & RPA Integration',
+    domain: 'technical',
+    domainLabel: 'Technical Stack',
+    axisId: 'bi-automation',
+    level: 92,
+    evidence: 'Sirius & L.O.T. automated pipelines delivering 12 MTL annual cost avoidance',
+  },
+  {
+    id: 'six-sigma-fmea',
+    name: 'Six Sigma, FMEA & Quality Control',
+    domain: 'logistics',
+    domainLabel: 'Logistics & Governance',
+    axisId: 'quality-six-sigma',
+    level: 92,
+    evidence: 'PMI Six Sigma & Operational Excellence; hidden damage and misfit analysis',
+  },
+  {
+    id: 'ms-access-pipelines',
+    name: 'MS Access & Multi-Source Data Pipelines',
+    domain: 'technical',
+    domainLabel: 'Technical Stack',
+    axisId: 'bi-automation',
+    level: 90,
+    evidence: 'Unified 8 operational feeds across COSMOS, MOP Master Data, and LOD-DOM',
+  },
+  {
+    id: 'project-budget-schedule',
+    name: 'Project, Budget & Schedule Management',
+    domain: 'logistics',
+    domainLabel: 'Logistics & Governance',
+    axisId: 'project-ba',
+    level: 90,
+    evidence: 'PMI & NASBA accredited; built and scaled extended field audit teams',
+  },
+  {
+    id: 'in-house-coding-web',
+    name: 'In-House Coding & Web Development',
+    domain: 'technical',
+    domainLabel: 'Technical Stack',
+    axisId: 'coding-web',
+    level: 88,
+    evidence: 'Custom logistics software development, mobile tracking, and RBAC security',
+  },
+  {
+    id: 'business-analysis-agile',
+    name: 'Business Analysis & Agile Requirements',
+    domain: 'logistics',
+    domainLabel: 'Logistics & Governance',
+    axisId: 'project-ba',
+    level: 88,
+    evidence: 'IIBA & PMI certified; cross-functional alignment across Sales, CS, and BC',
+  },
+  {
+    id: 'ftl-3pl-stock',
+    name: 'FTL Planning, 3PL & Stock Control',
+    domain: 'logistics',
+    domainLabel: 'Logistics & Governance',
+    axisId: 'logistics-distribution',
+    level: 88,
+    evidence: 'Primary Ankara RDC FTL load balancing, 3PL oversight, and import stock control',
+  },
+  {
+    id: 'sap-enterprise-erp',
+    name: 'SAP & Enterprise ERP Operations',
+    domain: 'technical',
+    domainLabel: 'Technical Stack',
+    axisId: 'enterprise-systems',
+    level: 86,
+    evidence: 'SAP operational reporting, purchasing simulations, and master data reconciliation',
+  },
+  {
+    id: 'ai-supply-chain-analytics',
+    name: 'AI-Assisted Supply Chain Decision Support',
+    domain: 'technical',
+    domainLabel: 'Technical Stack',
+    axisId: 'enterprise-systems',
+    level: 82,
+    evidence: 'TAÜ-DDUAM certified in AI supply chain management; REM region decision helpers',
+  },
+];
+
