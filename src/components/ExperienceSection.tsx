@@ -1,0 +1,429 @@
+import { useState } from 'react';
+import {
+  CAREER_MILESTONES,
+  CHALLENGES_AND_LEARNINGS,
+  PROFILE,
+} from '../data/portfolioData';
+
+type ReflectionTab = 'challenges' | 'learnings';
+
+export function ExperienceSection() {
+  const [reflectionTab, setReflectionTab] = useState<ReflectionTab>('challenges');
+
+  return (
+    <>
+      <section
+        id="experience"
+        className="py-20 lg:py-24 border-b border-[#E4E6EA] dark:border-[#252A33] bg-[#FAFAFA] dark:bg-[#0C0E11] transition-colors duration-200"
+      >
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl pb-10 border-b border-[#E4E6EA] dark:border-[#252A33]">
+            <p className="text-sm font-medium text-[#B5381A] dark:text-[#F06A4A] mb-2">
+              02. Career Trajectory
+            </p>
+            <h2
+              className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7]"
+              style={{ textWrap: 'balance' }}
+            >
+              From regional operations to national distribution auditing &amp; automation.
+            </h2>
+          </div>
+
+          <div className="divide-y divide-[#E4E6EA] dark:divide-[#252A33]">
+            {CAREER_MILESTONES.map((milestone) => (
+              <article
+                key={milestone.id}
+                className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10"
+              >
+                <div className="lg:col-span-4 space-y-1.5">
+                  <p className="font-mono text-sm font-medium text-[#B5381A] dark:text-[#F06A4A] tabular-nums">
+                    {milestone.period}
+                  </p>
+                  <h3 className="font-display text-xl font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7]">
+                    {milestone.company}
+                  </h3>
+                  <p className="text-sm font-medium text-[#424850] dark:text-[#C2C8D1]">
+                    {milestone.role}
+                  </p>
+                  <p className="text-xs text-[#6B7280] dark:text-[#8E96A4]">{milestone.location}</p>
+                </div>
+
+                <div className="lg:col-span-8 space-y-5">
+                  <p className="text-[15px] leading-relaxed text-[#353A40] dark:text-[#D5DAE2] max-w-[68ch]">
+                    {milestone.summary}
+                  </p>
+
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-sm text-[#424850] dark:text-[#C2C8D1]">
+                    {milestone.focusAreas.map((point) => (
+                      <li key={point} className="flex items-start gap-2.5 leading-snug">
+                        <span
+                          aria-hidden="true"
+                          className="text-[#9AA0A8] dark:text-[#636C7A] select-none shrink-0"
+                        >
+                          —
+                        </span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="pt-4 border-t border-[#E4E6EA]/80 dark:border-[#252A33]">
+                    <p className="text-xs font-semibold text-[#111315] dark:text-[#F2F4F7] mb-1.5">
+                      Gained Capabilities
+                    </p>
+                    <p className="text-xs leading-relaxed text-[#525860] dark:text-[#949CA8]">
+                      {milestone.capabilities.map((cap, idx) => (
+                        <span key={cap}>
+                          {cap}
+                          {idx < milestone.capabilities.length - 1 && (
+                            <span
+                              aria-hidden="true"
+                              className="mx-2 text-[#C5C9D0] dark:text-[#474F5E]"
+                            >
+                              ·
+                            </span>
+                          )}
+                        </span>
+                      ))}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 bg-white dark:bg-[#13161B] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl p-7 lg:p-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#E4E6EA] dark:border-[#252A33]">
+              <div>
+                <h3 className="font-display text-lg font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7]">
+                  Field Journey: Challenges Solved &amp; Core Learnings
+                </h3>
+                <p className="text-sm text-[#525860] dark:text-[#949CA8] mt-1">
+                  Lessons distilled from building audit teams and standardizing LSP operations.
+                </p>
+              </div>
+              <div
+                role="tablist"
+                aria-label="Field journey reflections"
+                className="inline-flex items-center gap-1 p-1 bg-[#F3F4F6] dark:bg-[#1B1F26] rounded-lg self-start"
+              >
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={reflectionTab === 'challenges'}
+                  onClick={() => setReflectionTab('challenges')}
+                  className={`px-3.5 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 ${
+                    reflectionTab === 'challenges'
+                      ? 'bg-white dark:bg-[#2A303B] text-[#111315] dark:text-[#F2F4F7] shadow-sm'
+                      : 'text-[#525860] dark:text-[#949CA8] hover:text-[#111315] dark:hover:text-[#F2F4F7]'
+                  }`}
+                >
+                  Challenges Tackled
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={reflectionTab === 'learnings'}
+                  onClick={() => setReflectionTab('learnings')}
+                  className={`px-3.5 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 ${
+                    reflectionTab === 'learnings'
+                      ? 'bg-white dark:bg-[#2A303B] text-[#111315] dark:text-[#F2F4F7] shadow-sm'
+                      : 'text-[#525860] dark:text-[#949CA8] hover:text-[#111315] dark:hover:text-[#F2F4F7]'
+                  }`}
+                >
+                  Core Learnings
+                </button>
+              </div>
+            </div>
+
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+              {CHALLENGES_AND_LEARNINGS[reflectionTab].map((entry, idx) => (
+                <div key={entry} className="flex items-start gap-3.5">
+                  <span className="font-mono text-xs font-medium text-[#B5381A] dark:text-[#F06A4A] tabular-nums mt-0.5 shrink-0">
+                    0{idx + 1}.
+                  </span>
+                  <p className="text-sm leading-relaxed text-[#353A40] dark:text-[#D5DAE2]">
+                    {entry}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="methodology"
+        className="py-20 lg:py-24 border-b border-[#E4E6EA] dark:border-[#252A33] bg-white dark:bg-[#13161B] transition-colors duration-200"
+      >
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl pb-10 border-b border-[#E4E6EA] dark:border-[#252A33]">
+            <p className="text-sm font-medium text-[#B5381A] dark:text-[#F06A4A] mb-2">
+              03. Profile &amp; Methodology
+            </p>
+            <h2
+              className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7]"
+              style={{ textWrap: 'balance' }}
+            >
+              Analytical rigor paired with practical field execution.
+            </h2>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="bg-[#FAFAFA] dark:bg-[#0C0E11] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl p-6 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-display text-base font-bold text-[#111315] dark:text-[#F2F4F7]">
+                    Improvement On The Field
+                  </h3>
+                  <p className="mt-1.5 text-sm text-[#525860] dark:text-[#949CA8]">
+                    Every digital tool begins with physical observation and ends with verified
+                    impact on the platform floor.
+                  </p>
+                </div>
+
+                <svg
+                  viewBox="0 0 280 185"
+                  role="img"
+                  aria-label="Diagram showing Analyze, Coding, and Field converging into Improvement On The Field"
+                  className="w-full h-auto mt-6"
+                >
+                  <circle
+                    cx="98"
+                    cy="58"
+                    r="38"
+                    className="fill-[#D94826]/10 dark:fill-[#F06A4A]/15 stroke-[#D94826]/55 dark:stroke-[#F06A4A]/70"
+                    strokeWidth="1.25"
+                  />
+                  <text
+                    x="98"
+                    y="62"
+                    textAnchor="middle"
+                    className="fill-[#111315] dark:fill-[#F2F4F7] text-[12px] font-semibold"
+                  >
+                    Analyze
+                  </text>
+
+                  <circle
+                    cx="182"
+                    cy="58"
+                    r="38"
+                    className="fill-[#111315]/5 dark:fill-[#F2F4F7]/10 stroke-[#111315]/35 dark:stroke-[#949CA8]/60"
+                    strokeWidth="1.25"
+                  />
+                  <text
+                    x="182"
+                    y="62"
+                    textAnchor="middle"
+                    className="fill-[#111315] dark:fill-[#F2F4F7] text-[12px] font-semibold"
+                  >
+                    Coding
+                  </text>
+
+                  <circle
+                    cx="140"
+                    cy="104"
+                    r="34"
+                    className="fill-[#D94826]/15 dark:fill-[#F06A4A]/20 stroke-[#B5381A]/65 dark:stroke-[#F06A4A]/80"
+                    strokeWidth="1.25"
+                  />
+                  <text
+                    x="140"
+                    y="108"
+                    textAnchor="middle"
+                    className="fill-[#111315] dark:fill-[#F2F4F7] text-[12px] font-semibold"
+                  >
+                    Field
+                  </text>
+
+                  <line
+                    x1="140"
+                    y1="142"
+                    x2="140"
+                    y2="160"
+                    className="stroke-[#B5381A] dark:stroke-[#F06A4A]"
+                    strokeWidth="1.5"
+                  />
+                  <polygon
+                    points="135,157 145,157 140,165"
+                    className="fill-[#B5381A] dark:fill-[#F06A4A]"
+                  />
+                  <text
+                    x="140"
+                    y="180"
+                    textAnchor="middle"
+                    className="fill-[#111315] dark:fill-[#F2F4F7] text-[12px] font-bold"
+                  >
+                    Improvement On The Field
+                  </text>
+                </svg>
+              </div>
+
+              <div className="bg-[#FAFAFA] dark:bg-[#0C0E11] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl p-6 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-display text-base font-bold text-[#111315] dark:text-[#F2F4F7]">
+                    Digitalisation Ecosystem
+                  </h3>
+                  <p className="mt-1.5 text-sm text-[#525860] dark:text-[#949CA8]">
+                    Connecting partner governance, KPI transparency, and daily logistics execution.
+                  </p>
+                </div>
+
+                <svg
+                  viewBox="0 0 280 185"
+                  role="img"
+                  aria-label="Diagram showing Digitalisation connecting LSP Management, KPI Tracking, and Logistic Management"
+                  className="w-full h-auto mt-6"
+                >
+                  <circle
+                    cx="140"
+                    cy="105"
+                    r="50"
+                    className="fill-[#D94826]/10 dark:fill-[#F06A4A]/15 stroke-[#D94826]/55 dark:stroke-[#F06A4A]/70"
+                    strokeWidth="1.25"
+                  />
+                  <text
+                    x="140"
+                    y="109"
+                    textAnchor="middle"
+                    className="fill-[#111315] dark:fill-[#F2F4F7] text-[13px] font-bold"
+                  >
+                    Digitalisation
+                  </text>
+
+                  <circle
+                    cx="140"
+                    cy="34"
+                    r="28"
+                    className="fill-white dark:fill-[#13161B] stroke-[#C5C9D0] dark:stroke-[#3A4150]"
+                    strokeWidth="1.25"
+                  />
+                  <text
+                    x="140"
+                    y="31"
+                    textAnchor="middle"
+                    className="fill-[#111315] dark:fill-[#F2F4F7] text-[10px] font-medium"
+                  >
+                    LSP
+                  </text>
+                  <text
+                    x="140"
+                    y="43"
+                    textAnchor="middle"
+                    className="fill-[#525860] dark:fill-[#949CA8] text-[9px]"
+                  >
+                    Management
+                  </text>
+
+                  <circle
+                    cx="68"
+                    cy="140"
+                    r="28"
+                    className="fill-white dark:fill-[#13161B] stroke-[#C5C9D0] dark:stroke-[#3A4150]"
+                    strokeWidth="1.25"
+                  />
+                  <text
+                    x="68"
+                    y="137"
+                    textAnchor="middle"
+                    className="fill-[#111315] dark:fill-[#F2F4F7] text-[10px] font-medium"
+                  >
+                    KPI
+                  </text>
+                  <text
+                    x="68"
+                    y="149"
+                    textAnchor="middle"
+                    className="fill-[#525860] dark:fill-[#949CA8] text-[9px]"
+                  >
+                    Tracking
+                  </text>
+
+                  <circle
+                    cx="212"
+                    cy="140"
+                    r="28"
+                    className="fill-white dark:fill-[#13161B] stroke-[#C5C9D0] dark:stroke-[#3A4150]"
+                    strokeWidth="1.25"
+                  />
+                  <text
+                    x="212"
+                    y="137"
+                    textAnchor="middle"
+                    className="fill-[#111315] dark:fill-[#F2F4F7] text-[10px] font-medium"
+                  >
+                    Logistic
+                  </text>
+                  <text
+                    x="212"
+                    y="149"
+                    textAnchor="middle"
+                    className="fill-[#525860] dark:fill-[#949CA8] text-[9px]"
+                  >
+                    Management
+                  </text>
+                </svg>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 space-y-6">
+              <div className="border-t border-[#E4E6EA] dark:border-[#252A33] pt-5">
+                <p className="text-xs font-semibold text-[#525860] dark:text-[#949CA8]">
+                  Work Principles
+                </p>
+                <p className="mt-2 font-display text-lg font-bold text-[#111315] dark:text-[#F2F4F7] tracking-tight">
+                  {PROFILE.coreValues.map((val, idx) => (
+                    <span key={val}>
+                      {val}
+                      {idx < PROFILE.coreValues.length - 1 && (
+                        <span
+                          aria-hidden="true"
+                          className="mx-2 text-[#D94826] dark:text-[#F06A4A] font-normal"
+                        >
+                          ·
+                        </span>
+                      )}
+                    </span>
+                  ))}
+                </p>
+              </div>
+
+              <div className="border-t border-[#E4E6EA] dark:border-[#252A33] pt-5">
+                <p className="text-xs font-semibold text-[#525860] dark:text-[#949CA8]">Education</p>
+                <p className="mt-1.5 text-[15px] font-semibold text-[#111315] dark:text-[#F2F4F7]">
+                  {PROFILE.education.institution}
+                </p>
+                <p className="text-sm text-[#424850] dark:text-[#C2C8D1] mt-0.5">
+                  {PROFILE.education.degree} · {PROFILE.education.honors}
+                </p>
+              </div>
+
+              <div className="border-t border-[#E4E6EA] dark:border-[#252A33] pt-5">
+                <p className="text-xs font-semibold text-[#525860] dark:text-[#949CA8]">Languages</p>
+                <dl className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
+                  {PROFILE.languages.map((lang) => (
+                    <div key={lang.language} className="flex items-baseline justify-between gap-2">
+                      <dt className="font-medium text-[#111315] dark:text-[#F2F4F7]">
+                        {lang.language}
+                      </dt>
+                      <dd className="text-xs text-[#525860] dark:text-[#949CA8]">{lang.level}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
+              <div className="border-t border-[#E4E6EA] dark:border-[#252A33] pt-5">
+                <p className="text-xs font-semibold text-[#525860] dark:text-[#949CA8]">
+                  Outside Logistics
+                </p>
+                <p className="mt-1.5 text-sm leading-relaxed text-[#424850] dark:text-[#C2C8D1]">
+                  {PROFILE.personalNote}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

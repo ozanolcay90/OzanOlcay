@@ -1,11 +1,38 @@
-<div align="center">
+# Ozan Olcay — Professional Portfolio
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Personal portfolio showcasing logistics digitalization systems (**L.O.T.** & **Sirius**), career trajectory, methodology, and 11 accredited certifications.
 
-  <h1>Built with AI Studio</h2>
+## Local Development
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+```bash
+npm install
+npm run dev
+```
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+Build for production:
 
-</div>
+```bash
+npm run build
+npm run preview
+```
+
+## Deploy to Vercel
+
+This project includes a preconfigured `vercel.json` for Vite static builds and bundles all PDFs, portrait, and certificate preview images under `public/assets/`.
+
+### Option A: Deploy via GitHub + Vercel Dashboard (Recommended)
+1. Push this project to a GitHub repository.
+2. Sign in to [vercel.com](https://vercel.com) and click **Add New → Project**.
+3. Import your GitHub repository.
+4. Keep the detected defaults (`Framework: Vite`, `Build Command: npm run build`, `Output Directory: dist`). No environment variables are required.
+5. Click **Deploy**. Every future push to `main` automatically updates your live site.
+
+### Option B: Deploy via Vercel CLI
+```bash
+npm install
+npx vercel
+```
+Follow the prompts to link your Vercel account, then deploy to production:
+```bash
+npx vercel --prod
+```
