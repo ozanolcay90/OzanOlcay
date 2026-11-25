@@ -18,6 +18,11 @@ test('buildPortfolioKnowledgeBase includes core metrics, all 16 L.O.T. datasets,
   assert.match(kb, /Customer Service Install Data/);
   assert.match(kb, /Included Datasets \(16 datasets\)/);
   assert.match(kb, /Verified Credentials \(11 total\)/);
+  assert.match(kb, /Yıldırım Beyazıt High School/);
+  assert.match(kb, /3\.33 GPA/);
+  assert.match(kb, /3rd Highest GPA in the Faculty/);
+  assert.match(kb, /Reserve Officer \(Second Lieutenant\)/);
+  assert.match(kb, /1st Place On Training Camp/);
   assert.match(kb, /Custom note: Fluent in Python and SQL\./);
 });
 

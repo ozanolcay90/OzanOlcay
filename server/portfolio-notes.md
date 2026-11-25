@@ -7,7 +7,8 @@ Add any additional project notes, interview talking points, availability details
 - Full Name: Ozan Olcay (B/S/H/ internal code: BSH GPL-LO74DQ)
 - Date of Birth: June 21, 1990 (Age 36 in 2026)
 - Hometown & Base: Born/raised from Ankara, Türkiye; currently operating at B/S/H/ Çerkezköy, Türkiye
-- Education: Graduated from Ufuk University, Political Science and International Relations (Full Scholarship)
+- Education: Graduated from Ufuk University, Political Science and International Relations (Full Scholarship, 3.33 GPA — 3rd Highest GPA in the Faculty); Yıldırım Beyazıt High School
+- Military Service: Reserve Officer (Second Lieutenant) — 1st Place On Training Camp
 - Languages: Turkish (Native), English (Fluent / Professional), German (A2), Spanish (A2)
 - Personal & Interests: Logistician, developer, and father of a 9-month-old. Plays guitar and saz (Turkish bağlama), listens to podcasts, learns new languages, and enjoys spending time with family.
 - Core Character Hierarchy (Concentric Model): Honest (core foundation) -> Responsible -> Fast Learner -> Proactive (outer action layer).

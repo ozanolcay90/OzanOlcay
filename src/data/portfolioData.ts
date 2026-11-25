@@ -90,6 +90,13 @@ export const PROFILE = {
     institution: 'Ufuk University',
     degree: 'B.A. in Political Science and International Relations',
     honors: 'Full Scholarship',
+    gpa: '3.33 GPA',
+    distinction: '3rd Highest GPA in the Faculty',
+    highSchool: 'Yıldırım Beyazıt High School',
+  },
+  militaryService: {
+    role: 'Reserve Officer (Second Lieutenant)',
+    distinction: '1st Place On Training Camp',
   },
   languages: [
     { language: 'Turkish', level: 'Native' },

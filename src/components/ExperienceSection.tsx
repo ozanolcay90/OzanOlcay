@@ -390,11 +390,35 @@ export function ExperienceSection() {
 
               <div className="border-t border-[#E4E6EA] dark:border-[#252A33] pt-5">
                 <p className="text-xs font-semibold text-[#525860] dark:text-[#949CA8]">Education</p>
-                <p className="mt-1.5 text-[15px] font-semibold text-[#111315] dark:text-[#F2F4F7]">
-                  {PROFILE.education.institution}
+                <div className="mt-2 space-y-3">
+                  <div>
+                    <p className="text-[15px] font-semibold text-[#111315] dark:text-[#F2F4F7]">
+                      {PROFILE.education.institution}
+                    </p>
+                    <p className="text-sm text-[#424850] dark:text-[#C2C8D1] mt-0.5">
+                      {PROFILE.education.degree} · {PROFILE.education.honors}
+                    </p>
+                    <p className="font-mono text-xs text-[#B5381A] dark:text-[#F06A4A] mt-1">
+                      {PROFILE.education.gpa} · {PROFILE.education.distinction}
+                    </p>
+                  </div>
+                  <div className="pt-2.5 border-t border-[#E4E6EA]/70 dark:border-[#252A33]/70">
+                    <p className="text-sm font-medium text-[#111315] dark:text-[#F2F4F7]">
+                      {PROFILE.education.highSchool}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t border-[#E4E6EA] dark:border-[#252A33] pt-5">
+                <p className="text-xs font-semibold text-[#525860] dark:text-[#949CA8]">
+                  Military Service
                 </p>
-                <p className="text-sm text-[#424850] dark:text-[#C2C8D1] mt-0.5">
-                  {PROFILE.education.degree} · {PROFILE.education.honors}
+                <p className="mt-1.5 text-[15px] font-semibold text-[#111315] dark:text-[#F2F4F7]">
+                  {PROFILE.militaryService.role}
+                </p>
+                <p className="font-mono text-xs text-[#B5381A] dark:text-[#F06A4A] mt-1">
+                  {PROFILE.militaryService.distinction}
                 </p>
               </div>
 

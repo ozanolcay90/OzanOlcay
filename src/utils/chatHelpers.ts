@@ -167,7 +167,9 @@ export function buildPortfolioKnowledgeBase(extraNotes?: string): string {
     (m) => `- ${m.value} — ${m.label}: ${m.detail}`,
   ).join('\n');
 
-  const educationLine = `${PROFILE.education.institution} — ${PROFILE.education.degree} (${PROFILE.education.honors})`;
+  const educationLine = `${PROFILE.education.institution} — ${PROFILE.education.degree} (${PROFILE.education.honors}, ${PROFILE.education.gpa}, ${PROFILE.education.distinction})`;
+  const highSchoolLine = PROFILE.education.highSchool;
+  const militaryLine = `${PROFILE.militaryService.role} — ${PROFILE.militaryService.distinction}`;
   const languagesLine = PROFILE.languages
     .map((item) => `${item.language} (${item.level})`)
     .join(', ');
@@ -180,7 +182,9 @@ export function buildPortfolioKnowledgeBase(extraNotes?: string): string {
     `- Target Focus: ${PROFILE.targetFocus}`,
     `- Location: ${PROFILE.location}`,
     `- Email: ${PROFILE.email}`,
-    `- Education: ${educationLine}`,
+    `- University Education: ${educationLine}`,
+    `- High School: ${highSchoolLine}`,
+    `- Military Service: ${militaryLine}`,
     `- Languages: ${languagesLine}`,
     `- Core Values (Concentric): ${PROFILE.coreValues.join(' -> ')}`,
     `- Field Improvement Formula: ${PROFILE.fieldFormula.join(' + ')} -> Improvement On The Field`,
