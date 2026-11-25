@@ -82,7 +82,7 @@ export const PROFILE = {
   location: 'Ankara & Çerkezköy, Türkiye',
   email: 'ozanolcay90@gmail.com',
   portraitPath: '/assets/ozan-portrait.jpg',
-  interviewDeckPdf: '/assets/aistudio/Interview_for_REM_Region_Logistics_Expert_63a3e085.pdf',
+  interviewDeckPdf: '/assets/aistudio/Interview_for_REM_Region_Logistics_Expert_98adc47e.pdf',
   certificatesArchiveUrl:
     'https://drive.google.com/drive/folders/1_IiDiDvj4-KIJrXgSC1JMSAU0HIVCzFc?usp=sharing',
   linkedinSearchUrl: 'https://www.linkedin.com/search/results/all/?keywords=Ozan%20Olcay%20BSH',
@@ -346,6 +346,9 @@ export const CAREER_MILESTONES: CareerMilestone[] = [
       'Quality',
       'Delivery',
       'Customer Relations & Focus',
+      'AutoCAD',
+      'Layout',
+      'Optimization',
     ],
     focusAreas: [
       'Built and scaled an extended audit and inventory counting team',
