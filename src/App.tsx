@@ -8,7 +8,6 @@ import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ExperienceSection } from './components/ExperienceSection';
-import { SkillsSection } from './components/SkillsSection';
 import { CertificatesSection } from './components/CertificatesSection';
 import { ContactSection } from './components/ContactSection';
 import {
@@ -66,7 +65,6 @@ export default function App() {
         <HeroSection />
         <ProjectsSection />
         <ExperienceSection />
-        <SkillsSection />
         <CertificatesSection />
         <ContactSection />
       </main>

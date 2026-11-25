@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, Check, Database, Layers, X } from 'lucide-react';
+import { ArrowUpRight, Check, Database, Layers, Shield, Users, X } from 'lucide-react';
 import {
   PROJECTS,
   RECOGNITIONS,
@@ -88,29 +88,37 @@ export function ProjectsSection() {
                     {project.summary}
                   </p>
 
-                  <div className="mt-6 grid grid-cols-3 gap-4 py-4 border-y border-[#E4E6EA] dark:border-[#252A33]">
+                  <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-[#E4E6EA] dark:border-[#252A33]">
                     <div>
                       <p className="font-mono text-xl font-medium text-[#111315] dark:text-[#F2F4F7] tabular-nums">
-                        {project.sources.length}
+                        {project.pagesCount}
                       </p>
                       <p className="text-xs text-[#525860] dark:text-[#949CA8] mt-0.5">
-                        Data sources
+                        Report pages
                       </p>
                     </div>
                     <div>
                       <p className="font-mono text-xl font-medium text-[#111315] dark:text-[#F2F4F7] tabular-nums">
-                        {project.automatedProcesses.length}
+                        {project.users.length}
                       </p>
                       <p className="text-xs text-[#525860] dark:text-[#949CA8] mt-0.5">
-                        Automated engines
+                        User teams
                       </p>
                     </div>
                     <div>
                       <p className="font-mono text-xl font-medium text-[#111315] dark:text-[#F2F4F7] tabular-nums">
-                        {project.outputs.length}
+                        {project.includedData.length}
                       </p>
                       <p className="text-xs text-[#525860] dark:text-[#949CA8] mt-0.5">
-                        Core outputs
+                        Included datasets
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-mono text-xl font-medium text-[#111315] dark:text-[#F2F4F7] tabular-nums">
+                        {project.dataSize.graphics}
+                      </p>
+                      <p className="text-xs text-[#525860] dark:text-[#949CA8] mt-0.5">
+                        Graphics
                       </p>
                     </div>
                   </div>
@@ -134,6 +142,33 @@ export function ProjectsSection() {
                       ))}
                     </ul>
                   </div>
+
+                  <dl className="mt-6 pt-5 border-t border-[#E4E6EA] dark:border-[#252A33] grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                    <div>
+                      <dt className="font-semibold text-[#525860] dark:text-[#949CA8]">
+                        Access Restrictions
+                      </dt>
+                      <dd className="mt-0.5 text-[#111315] dark:text-[#F2F4F7] font-medium">
+                        {project.restrictions}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-[#525860] dark:text-[#949CA8]">
+                        Data Security &amp; Scale
+                      </dt>
+                      <dd className="mt-0.5 text-[#111315] dark:text-[#F2F4F7] font-medium tabular-nums">
+                        {project.dataSecurity} · {project.dataSize.rows}
+                      </dd>
+                    </div>
+                    <div className="sm:col-span-2">
+                      <dt className="font-semibold text-[#525860] dark:text-[#949CA8]">
+                        Authorized User Teams ({project.users.length})
+                      </dt>
+                      <dd className="mt-1 text-[#424850] dark:text-[#C2C8D1] leading-relaxed">
+                        {project.users.join(' · ')}
+                      </dd>
+                    </div>
+                  </dl>
                 </div>
 
                 <div className="mt-8 pt-5 border-t border-[#E4E6EA] dark:border-[#252A33] flex items-center justify-between gap-4">
@@ -304,7 +339,7 @@ export function ProjectsSection() {
               )}
             </div>
 
-            <div className="p-6 space-y-8">
+            <div className="p-6 space-y-6">
               {modalTab === 'architecture' ? (
                 <>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 bg-[#FAFAFA] dark:bg-[#0C0E11] border border-[#E4E6EA] dark:border-[#252A33] rounded-lg">
@@ -320,6 +355,44 @@ export function ProjectsSection() {
                       </p>
                     </div>
                   </div>
+
+                  <dl className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-4 border border-[#E4E6EA] dark:border-[#252A33] rounded-lg bg-[#FAFAFA]/60 dark:bg-[#0C0E11]/60 text-xs">
+                    <div>
+                      <dt className="font-semibold text-[#525860] dark:text-[#949CA8]">Pages</dt>
+                      <dd className="mt-1 font-mono text-sm font-medium text-[#111315] dark:text-[#F2F4F7] tabular-nums">
+                        {selectedProject.pagesCount} Pages
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-[#525860] dark:text-[#949CA8]">
+                        Data Size
+                      </dt>
+                      <dd className="mt-1 font-mono text-xs font-medium text-[#111315] dark:text-[#F2F4F7] tabular-nums leading-snug">
+                        {selectedProject.dataSize.rows} · {selectedProject.dataSize.sourcePages} ·{' '}
+                        {selectedProject.dataSize.graphics} graphics
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-[#525860] dark:text-[#949CA8]">
+                        Restrictions
+                      </dt>
+                      <dd className="mt-1 text-sm font-medium text-[#111315] dark:text-[#F2F4F7]">
+                        {selectedProject.restrictions}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-[#525860] dark:text-[#949CA8]">
+                        Data Security
+                      </dt>
+                      <dd className="mt-1 inline-flex items-center gap-1.5 text-sm font-medium text-[#111315] dark:text-[#F2F4F7]">
+                        <Shield
+                          className="w-3.5 h-3.5 text-[#B5381A] dark:text-[#F06A4A] shrink-0"
+                          aria-hidden="true"
+                        />
+                        <span>{selectedProject.dataSecurity}</span>
+                      </dd>
+                    </div>
+                  </dl>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     <div className="border border-[#E4E6EA] dark:border-[#252A33] rounded-lg p-4">
@@ -390,75 +463,203 @@ export function ProjectsSection() {
                       </ul>
                     </div>
                   </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+                    <div className="md:col-span-5 border border-[#E4E6EA] dark:border-[#252A33] rounded-lg p-4">
+                      <div className="flex items-baseline justify-between gap-2 pb-3 mb-3 border-b border-[#E4E6EA] dark:border-[#252A33]">
+                        <h4 className="font-display text-sm font-bold text-[#111315] dark:text-[#F2F4F7] whitespace-nowrap">
+                          04. Authorized Users
+                        </h4>
+                        <span className="font-mono text-xs text-[#525860] dark:text-[#949CA8] tabular-nums whitespace-nowrap shrink-0">
+                          {selectedProject.users.length} teams
+                        </span>
+                      </div>
+                      <ul className="space-y-2 text-[13px] leading-snug text-[#424850] dark:text-[#C2C8D1]">
+                        {selectedProject.users.map((user) => (
+                          <li key={user} className="flex items-start gap-2">
+                            <Users
+                              className="w-3.5 h-3.5 text-[#7A818B] dark:text-[#8E96A4] shrink-0 mt-0.5"
+                              aria-hidden="true"
+                            />
+                            <span>{user}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="md:col-span-7 border border-[#E4E6EA] dark:border-[#252A33] rounded-lg p-4">
+                      <div className="flex items-baseline justify-between gap-2 pb-3 mb-3 border-b border-[#E4E6EA] dark:border-[#252A33]">
+                        <h4 className="font-display text-sm font-bold text-[#111315] dark:text-[#F2F4F7] whitespace-nowrap">
+                          05. Included Data Scope
+                        </h4>
+                        <span className="font-mono text-xs text-[#525860] dark:text-[#949CA8] tabular-nums whitespace-nowrap shrink-0">
+                          {selectedProject.includedData.length} datasets
+                        </span>
+                      </div>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-[13px] leading-snug text-[#424850] dark:text-[#C2C8D1]">
+                        {selectedProject.includedData.map((dataset) => (
+                          <li key={dataset} className="flex items-start gap-2">
+                            <span
+                              aria-hidden="true"
+                              className="text-[#B5381A] dark:text-[#F06A4A] select-none shrink-0"
+                            >
+                              —
+                            </span>
+                            <span>{dataset}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </>
               ) : (
                 <div className="space-y-6">
                   <p className="text-sm text-[#424850] dark:text-[#C2C8D1] leading-relaxed">
-                    L.O.T. (Local Operations Tracking) directly builds on the proven Sirius
-                    automation core—doubling integrated data sources from 4 to 8, adding RPA stock
-                    feeds, quality/purchasing simulations, mobile real-time tracking, and role-based
-                    access security.
+                    L.O.T. (Local Operations Tracking) directly scales the Sirius automation core
+                    from {sirius.pagesCount} to {lot.pagesCount} report pages—doubling user groups
+                    from {sirius.users.length} to {lot.users.length}, expanding included datasets
+                    from {sirius.includedData.length} to {lot.includedData.length}, growing visual
+                    analytics from {sirius.dataSize.graphics} to {lot.dataSize.graphics} graphics
+                    across 600,000 rows, and upgrading access control to {lot.restrictions} on{' '}
+                    {lot.dataSecurity}.
                   </p>
 
                   <div className="overflow-x-auto border border-[#E4E6EA] dark:border-[#252A33] rounded-lg">
                     <table className="w-full text-left border-collapse text-sm">
                       <thead>
                         <tr className="bg-[#FAFAFA] dark:bg-[#0C0E11] border-b border-[#E4E6EA] dark:border-[#252A33]">
-                          <th className="py-3.5 px-4 font-display font-semibold text-[#111315] dark:text-[#F2F4F7]">
+                          <th className="py-3.5 px-4 font-display font-semibold text-[#111315] dark:text-[#F2F4F7] w-44">
                             Dimension
                           </th>
                           <th className="py-3.5 px-4 font-display font-semibold text-[#111315] dark:text-[#F2F4F7]">
-                            Sirius System
+                            Sirius
                           </th>
                           <th className="py-3.5 px-4 font-display font-semibold text-[#B5381A] dark:text-[#F06A4A]">
-                            L.O.T. Control Tower
+                            Local Operations Tracking (L.O.T.)
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#E4E6EA] dark:divide-[#252A33]">
+                      <tbody className="divide-y divide-[#E4E6EA] dark:divide-[#252A33] align-top">
                         <tr>
                           <td className="py-3.5 px-4 font-medium text-[#111315] dark:text-[#F2F4F7]">
-                            Data Sources
+                            Pages
                           </td>
                           <td className="py-3.5 px-4 font-mono tabular-nums text-[#424850] dark:text-[#C2C8D1]">
-                            {sirius.sources.length} core feeds
+                            {sirius.pagesCount} Pages
                           </td>
                           <td className="py-3.5 px-4 font-mono tabular-nums text-[#111315] dark:text-[#F2F4F7] font-medium">
-                            {lot.sources.length} feeds (+RPA Stock, Quality, LOD-DOM, Purchasing)
+                            {lot.pagesCount} Pages
                           </td>
                         </tr>
                         <tr>
                           <td className="py-3.5 px-4 font-medium text-[#111315] dark:text-[#F2F4F7]">
-                            Automated Calculations
+                            Data Size
                           </td>
-                          <td className="py-3.5 px-4 font-mono tabular-nums text-[#424850] dark:text-[#C2C8D1]">
-                            {sirius.automatedProcesses.length} processes
+                          <td className="py-3.5 px-4 font-mono text-xs tabular-nums text-[#424850] dark:text-[#C2C8D1] space-y-1">
+                            <div>{sirius.dataSize.rows}</div>
+                            <div>{sirius.dataSize.sourcePages}</div>
+                            <div>{sirius.dataSize.graphics} Graphics</div>
                           </td>
-                          <td className="py-3.5 px-4 font-mono tabular-nums text-[#111315] dark:text-[#F2F4F7] font-medium">
-                            {lot.automatedProcesses.length} processes (+Stock, Costing, Personnel,
-                            POS)
+                          <td className="py-3.5 px-4 font-mono text-xs tabular-nums text-[#111315] dark:text-[#F2F4F7] font-medium space-y-1">
+                            <div>{lot.dataSize.rows}</div>
+                            <div>{lot.dataSize.sourcePages}</div>
+                            <div>{lot.dataSize.graphics} Graphics</div>
                           </td>
                         </tr>
                         <tr>
                           <td className="py-3.5 px-4 font-medium text-[#111315] dark:text-[#F2F4F7]">
-                            Headline Proof Point
+                            Users
+                          </td>
+                          <td className="py-3.5 px-4 text-xs text-[#424850] dark:text-[#C2C8D1]">
+                            <p className="font-mono text-[11px] text-[#6B7280] dark:text-[#8E96A4] mb-1.5 tabular-nums">
+                              {sirius.users.length} teams
+                            </p>
+                            <ul className="space-y-1">
+                              {sirius.users.map((user) => (
+                                <li key={user}>— {user}</li>
+                              ))}
+                            </ul>
+                          </td>
+                          <td className="py-3.5 px-4 text-xs text-[#111315] dark:text-[#F2F4F7]">
+                            <p className="font-mono text-[11px] text-[#B5381A] dark:text-[#F06A4A] mb-1.5 tabular-nums">
+                              {lot.users.length} teams
+                            </p>
+                            <ul className="space-y-1">
+                              {lot.users.map((user) => (
+                                <li key={user}>— {user}</li>
+                              ))}
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="py-3.5 px-4 font-medium text-[#111315] dark:text-[#F2F4F7]">
+                            Included Data
+                          </td>
+                          <td className="py-3.5 px-4 text-xs text-[#424850] dark:text-[#C2C8D1]">
+                            <p className="font-mono text-[11px] text-[#6B7280] dark:text-[#8E96A4] mb-1.5 tabular-nums">
+                              {sirius.includedData.length} datasets
+                            </p>
+                            <ul className="space-y-1">
+                              {sirius.includedData.map((item) => (
+                                <li key={item}>— {item}</li>
+                              ))}
+                            </ul>
+                          </td>
+                          <td className="py-3.5 px-4 text-xs text-[#111315] dark:text-[#F2F4F7]">
+                            <p className="font-mono text-[11px] text-[#B5381A] dark:text-[#F06A4A] mb-1.5 tabular-nums">
+                              {lot.includedData.length} datasets
+                            </p>
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
+                              {lot.includedData.map((item) => (
+                                <li key={item}>— {item}</li>
+                              ))}
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="py-3.5 px-4 font-medium text-[#111315] dark:text-[#F2F4F7]">
+                            Data Sources &amp; Engines
+                          </td>
+                          <td className="py-3.5 px-4 font-mono text-xs tabular-nums text-[#424850] dark:text-[#C2C8D1]">
+                            {sirius.sources.length} sources · {sirius.automatedProcesses.length}{' '}
+                            automations
+                          </td>
+                          <td className="py-3.5 px-4 font-mono text-xs tabular-nums text-[#111315] dark:text-[#F2F4F7] font-medium">
+                            {lot.sources.length} sources · {lot.automatedProcesses.length}{' '}
+                            automations
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="py-3.5 px-4 font-medium text-[#111315] dark:text-[#F2F4F7]">
+                            Restrictions
                           </td>
                           <td className="py-3.5 px-4 text-[#424850] dark:text-[#C2C8D1]">
-                            12 MTL Yearly Cost Avoidance · Featured in Çerkezköy Postası
+                            {sirius.restrictions}
                           </td>
                           <td className="py-3.5 px-4 text-[#111315] dark:text-[#F2F4F7] font-medium">
-                            600K Data Rows &amp; 11K Pages in 233 Graphics (11 Pages)
+                            {lot.restrictions}
                           </td>
                         </tr>
                         <tr>
                           <td className="py-3.5 px-4 font-medium text-[#111315] dark:text-[#F2F4F7]">
-                            Access &amp; Mobility
+                            Data Security
                           </td>
                           <td className="py-3.5 px-4 text-[#424850] dark:text-[#C2C8D1]">
-                            Daily scorecards &amp; weekly platform/LSP progress reports
+                            {sirius.dataSecurity}
                           </td>
                           <td className="py-3.5 px-4 text-[#111315] dark:text-[#F2F4F7] font-medium">
-                            Real-time mobile tracking + Role-Based Authorization (RBAC)
+                            {lot.dataSecurity}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="py-3.5 px-4 font-medium text-[#111315] dark:text-[#F2F4F7]">
+                            Impact &amp; Mobility
+                          </td>
+                          <td className="py-3.5 px-4 text-[#424850] dark:text-[#C2C8D1]">
+                            12 MTL Yearly Cost Avoidance · Daily scorecards &amp; weekly LSP reports
+                          </td>
+                          <td className="py-3.5 px-4 text-[#111315] dark:text-[#F2F4F7] font-medium">
+                            360° Local Distribution Control Tower · Real-time mobile tracking
                           </td>
                         </tr>
                       </tbody>

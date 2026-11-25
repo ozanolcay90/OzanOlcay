@@ -61,14 +61,14 @@ export function ContactSection() {
     <>
       <section
         id="contact"
-        className="py-20 lg:py-24 bg-[#FAFAFA] dark:bg-[#0C0E11] transition-colors duration-200"
+        className="py-20 lg:py-24 bg-white dark:bg-[#13161B] transition-colors duration-200"
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
               <div>
                 <p className="text-sm font-medium text-[#B5381A] dark:text-[#F06A4A] mb-2">
-                  06. Contact
+                  05. Contact
                 </p>
                 <h2
                   className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7]"
@@ -173,7 +173,7 @@ export function ContactSection() {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="bg-white dark:bg-[#13161B] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl p-7 lg:p-8">
+              <div className="bg-[#FAFAFA] dark:bg-[#0C0E11] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl p-7 lg:p-8">
                 {submittedInquiry ? (
                   <div className="space-y-6" data-testid="inquiry-confirmation">
                     <div className="pb-5 border-b border-[#E4E6EA] dark:border-[#252A33]">
@@ -426,7 +426,7 @@ export function ContactSection() {
         </div>
       </section>
 
-      <footer className="border-t border-[#E4E6EA] dark:border-[#252A33] bg-white dark:bg-[#13161B] py-10 transition-colors duration-200">
+      <footer className="border-t border-[#E4E6EA] dark:border-[#252A33] bg-[#FAFAFA] dark:bg-[#0C0E11] py-10 transition-colors duration-200">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#525860] dark:text-[#949CA8]">
           <p>
             © 2026 {PROFILE.fullName} · {PROFILE.location}
@@ -443,12 +443,6 @@ export function ContactSection() {
               className="hover:text-[#111315] dark:hover:text-[#F2F4F7] transition-colors"
             >
               Experience
-            </a>
-            <a
-              href="#skills"
-              className="hover:text-[#111315] dark:hover:text-[#F2F4F7] transition-colors"
-            >
-              Skills
             </a>
             <a
               href="#credentials"

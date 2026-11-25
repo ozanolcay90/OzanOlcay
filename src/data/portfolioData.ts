@@ -33,6 +33,16 @@ export interface ProjectCaseStudy {
   headlineMetricLabel: string;
   summary: string;
   context: string;
+  pagesCount: number;
+  dataSize: {
+    rows: string;
+    sourcePages: string;
+    graphics: number;
+  };
+  restrictions: string;
+  dataSecurity: string;
+  users: string[];
+  includedData: string[];
   sources: string[];
   automatedProcesses: string[];
   outputs: string[];
@@ -62,35 +72,6 @@ export interface StrategicPillar {
   index: string;
   title: string;
   points: string[];
-}
-
-export type SkillDomain = 'all' | 'technical' | 'logistics';
-
-export type RadarAxisId =
-  | 'logistics-distribution'
-  | 'bi-automation'
-  | 'coding-web'
-  | 'quality-six-sigma'
-  | 'project-ba'
-  | 'enterprise-systems';
-
-export interface RadarAxisItem {
-  id: RadarAxisId;
-  labelLines: [string, string?];
-  fullLabel: string;
-  score: number;
-  domain: Exclude<SkillDomain, 'all'>;
-  evidence: string;
-}
-
-export interface SkillProficiencyItem {
-  id: string;
-  name: string;
-  domain: Exclude<SkillDomain, 'all'>;
-  domainLabel: string;
-  axisId: RadarAxisId;
-  level: number;
-  evidence: string;
 }
 
 export const PROFILE = {
@@ -132,7 +113,7 @@ export const HERO_METRICS = [
   {
     value: '600K+',
     label: 'Operational rows analyzed',
-    detail: '11K pages unified into 233 charts across 11 views in L.O.T.',
+    detail: '11K pages unified into 253 graphics across 11 views in L.O.T.',
   },
   {
     value: '3rd Place',
@@ -152,12 +133,48 @@ export const PROJECTS: ProjectCaseStudy[] = [
     name: 'L.O.T. (Local Operations Tracking)',
     shortTitle: 'L.O.T. Control Tower',
     kicker: 'Control Tower Architecture · B/S/H/ Local Distribution',
-    headlineMetric: '600K rows · 233 charts',
-    headlineMetricLabel: '11K pages synthesized into 11 live decision views',
+    headlineMetric: '600K rows · 253 graphics',
+    headlineMetricLabel: '11K pages synthesized into 11 live views',
     summary:
-      'An end-to-end operational intelligence platform expanding Sirius from audit reporting into full local distribution governance—combining RPA stock feeds, purchasing simulations, quality costing, and mobile real-time tracking with role-based data security.',
+      'An end-to-end operational intelligence platform expanding Sirius from 4 to 11 report pages across 8 functional teams—combining RPA stock feeds, purchasing and travel costing, primary/secondary quality, POS savings, and mobile real-time tracking secured on BSH Server with role-based page restrictions.',
     context:
-      'Built in-house to eliminate fragmented spreadsheets across local distribution platforms, uniting eight distinct data pipelines into a single secure source of truth for leadership and field auditors.',
+      'Built in-house on BSH Server to eliminate fragmented spreadsheets across local distribution platforms, uniting 8 data sources and 16 operational datasets into a single secure source of truth for 8 stakeholder teams.',
+    pagesCount: 11,
+    dataSize: {
+      rows: '600,000 rows',
+      sourcePages: '11,000 pages',
+      graphics: 253,
+    },
+    restrictions: 'Role-Based Page Restrictions',
+    dataSecurity: 'BSH Server',
+    users: [
+      'Operational Control',
+      'Cluster Control',
+      'Claim Management',
+      'Logistics Management',
+      'Local Distribution Management',
+      'Logistics Purchasing',
+      'Logistics Quality',
+      'Local Distribution Quality',
+    ],
+    includedData: [
+      'Operation Control Data',
+      'Cluster Control Data',
+      'Hidden Damage Data',
+      'Customer Service Install Data',
+      'Local Distribution Home Delivery KPIs Data',
+      'Detailed Platform Data',
+      'Platform Purchasing Data',
+      'Platform Purchasing Cost Data',
+      'Local Distribution Primary Quality Data',
+      'Local Distribution Secondary Quality Data',
+      'POS Data',
+      'POS Saving Data',
+      'DOM Data',
+      'Detailed Travel Cost Data',
+      'Platform Stock Data',
+      'Product Master Data',
+    ],
     sources: [
       'MS Access Database',
       'Customer Service COSMOS',
@@ -180,16 +197,16 @@ export const PROJECTS: ProjectCaseStudy[] = [
       'POS Calculations',
     ],
     outputs: [
-      '360-degree overview of all Local Distribution operations',
-      'Role-Based Authorization (RBAC) for enterprise data safety',
+      '360-degree overview of all Local Distribution operations across 8 user teams',
+      'Role-Based Page Restrictions hosted securely on BSH Server',
       'Real-time operational tracking directly on mobile devices',
-      'Unified ingestion across 8 heterogeneous operational data sources',
-      '600K data rows and 11K pages distilled into 233 graphics across 11 pages',
+      'Unified ingestion across 8 data sources and 16 operational datasets',
+      '600,000 data rows and 11,000 pages distilled into 253 graphics across 11 pages',
     ],
     highlights: [
-      'Expanded Sirius from 4 to 8 integrated operational data streams',
-      'Added RPA stock tracking, purchasing cost simulations, and personnel performance',
-      'Mobile-ready real-time tracking secured with Role-Based Authorization',
+      'Expanded from 4 to 11 report pages serving 8 operational, purchasing & quality teams',
+      'Unifies 16 datasets including Hidden Damage, Customer Service Install, Platform Stock, POS Savings & DOM',
+      '600,000 rows and 253 graphics protected with Role-Based Page Restrictions on BSH Server',
     ],
   },
   {
@@ -198,11 +215,31 @@ export const PROJECTS: ProjectCaseStudy[] = [
     shortTitle: 'Sirius Audit Engine',
     kicker: 'In-House Automation · Featured in Çerkezköy Postası',
     headlineMetric: '12 MTL / year',
-    headlineMetricLabel: 'Documented annual cost avoidance',
+    headlineMetricLabel: '128K rows · 2,500 source pages',
     summary:
-      'Custom in-house coded logistics audit and KPI automation suite engineered to standardize platform inspections, compute hidden damage and misfit rates automatically, and distribute daily scorecards and weekly LSP progress reports.',
+      'Custom in-house coded logistics audit and KPI automation suite engineered across 4 report pages for 4 core operational teams—processing 128,000 rows and 2,500 source pages into 25 graphics with application-based access hosted on BSH Server.',
     context:
       'Designed directly from field auditing needs to replace manual reconciliation across COSMOS, MOP master data, and Access databases—delivering rapid adaptation without external vendor bottlenecks.',
+    pagesCount: 4,
+    dataSize: {
+      rows: '128,000 rows',
+      sourcePages: '2,500 pages',
+      graphics: 25,
+    },
+    restrictions: 'Application Based',
+    dataSecurity: 'BSH Server',
+    users: [
+      'Operational Control',
+      'Cluster Control',
+      'Claim Management',
+      'Local Distribution Management',
+    ],
+    includedData: [
+      'Operation Control Data',
+      'Cluster Control Data',
+      'Hidden Damage',
+      'Local Distribution Home Delivery KPIs',
+    ],
     sources: [
       'MS Access Database',
       'Customer Service COSMOS',
@@ -219,15 +256,15 @@ export const PROJECTS: ProjectCaseStudy[] = [
     ],
     outputs: [
       '12 MTL yearly cost avoidance through automation and audit control',
-      'Significant time efficiency and reduced manual reporting effort',
-      'Consistent, scheduled operational verification of distribution platforms',
-      'Granular visibility into Local Distribution Home Delivery KPIs',
+      '128,000 rows and 2,500 pages synthesized into 25 graphics across 4 pages',
+      'Application-based access control hosted securely on BSH Server',
+      'Granular visibility into Local Distribution Home Delivery KPIs for 4 core teams',
       'Actionable view of platform improvement points with in-house code flexibility',
     ],
     highlights: [
       '12 MTL yearly cost avoidance validated in live operations',
-      'Featured in local press (Çerkezköy Postası) for operational innovation',
-      'Full flexibility and rapid iteration via in-house development',
+      'Serves 4 core teams across 4 report pages (128,000 rows · 25 graphics)',
+      'Application-based access control hosted on BSH Server · Featured in Çerkezköy Postası',
     ],
   },
 ];
@@ -575,174 +612,6 @@ export const CERTIFICATES: CertificateItem[] = [
     skills: ['Logistics Management', 'Distribution Operations'],
     previewImage: '/assets/certs/managing-logistics.jpg',
     pdfPath: '/assets/aistudio/CertificateOfCompletion_Managing_Logistics_3605e335.pdf',
-  },
-];
-
-export const SKILL_DOMAINS: { id: SkillDomain; label: string }[] = [
-  { id: 'all', label: 'All Skills' },
-  { id: 'technical', label: 'Technical Stack' },
-  { id: 'logistics', label: 'Logistics' },
-];
-
-export const RADAR_AXES: RadarAxisItem[] = [
-  {
-    id: 'logistics-distribution',
-    labelLines: ['Logistics &', 'Distribution'],
-    fullLabel: 'Logistics & Distribution',
-    score: 96,
-    domain: 'logistics',
-    evidence: 'B/S/H/ Local Distribution Platform Inspector since 2020, FTL planning, 3PL & LSP handovers.',
-  },
-  {
-    id: 'bi-automation',
-    labelLines: ['BI & Data', 'Automation'],
-    fullLabel: 'BI & Data Automation',
-    score: 94,
-    domain: 'technical',
-    evidence: 'Architected L.O.T. (600K+ rows, 233 charts) & Sirius (12 MTL annual cost avoidance) with RPA feeds.',
-  },
-  {
-    id: 'coding-web',
-    labelLines: ['In-House', 'Coding & Web'],
-    fullLabel: 'In-House Coding & Web',
-    score: 88,
-    domain: 'technical',
-    evidence: 'Bespoke audit engines, role-based mobile control towers, and custom data reconciliation tools.',
-  },
-  {
-    id: 'quality-six-sigma',
-    labelLines: ['Quality &', 'Six Sigma'],
-    fullLabel: 'Quality & Six Sigma',
-    score: 92,
-    domain: 'logistics',
-    evidence: 'PMI Six Sigma & Operational Excellence credentials; FMEA, hidden damage, and misfit auditing.',
-  },
-  {
-    id: 'project-ba',
-    labelLines: ['Project & BA', 'Governance'],
-    fullLabel: 'Project & BA Governance',
-    score: 90,
-    domain: 'logistics',
-    evidence: 'Accredited across PMI, IIBA & NASBA; led team budgets, schedules, and cross-functional discovery.',
-  },
-  {
-    id: 'enterprise-systems',
-    labelLines: ['SAP & AI', 'Systems'],
-    fullLabel: 'SAP & AI Systems',
-    score: 85,
-    domain: 'technical',
-    evidence: 'SAP RDC execution, COSMOS/MOP/LOD-DOM integration, and TAÜ-DDUAM AI supply chain training.',
-  },
-];
-
-export const SKILL_PROFICIENCIES: SkillProficiencyItem[] = [
-  {
-    id: 'ld-auditing-lsp',
-    name: 'Local Distribution Auditing & LSP Governance',
-    domain: 'logistics',
-    domainLabel: 'Logistics & Governance',
-    axisId: 'logistics-distribution',
-    level: 96,
-    evidence: 'B/S/H/ platform audits, handover discipline, and Direct WH standards',
-  },
-  {
-    id: 'power-bi-control-tower',
-    name: 'Power BI & Control Tower Analytics',
-    domain: 'technical',
-    domainLabel: 'Technical Stack',
-    axisId: 'bi-automation',
-    level: 95,
-    evidence: '233 charts across 11 live decision views processing 600K+ rows in L.O.T.',
-  },
-  {
-    id: 'kpi-tracking',
-    name: 'KPI Design & Performance Tracking',
-    domain: 'logistics',
-    domainLabel: 'Logistics & Governance',
-    axisId: 'logistics-distribution',
-    level: 95,
-    evidence: 'Home delivery KPIs, area leader control scores, and daily scorecards',
-  },
-  {
-    id: 'process-automation-rpa',
-    name: 'Process Automation & RPA Integration',
-    domain: 'technical',
-    domainLabel: 'Technical Stack',
-    axisId: 'bi-automation',
-    level: 92,
-    evidence: 'Sirius & L.O.T. automated pipelines delivering 12 MTL annual cost avoidance',
-  },
-  {
-    id: 'six-sigma-fmea',
-    name: 'Six Sigma, FMEA & Quality Control',
-    domain: 'logistics',
-    domainLabel: 'Logistics & Governance',
-    axisId: 'quality-six-sigma',
-    level: 92,
-    evidence: 'PMI Six Sigma & Operational Excellence; hidden damage and misfit analysis',
-  },
-  {
-    id: 'ms-access-pipelines',
-    name: 'MS Access & Multi-Source Data Pipelines',
-    domain: 'technical',
-    domainLabel: 'Technical Stack',
-    axisId: 'bi-automation',
-    level: 90,
-    evidence: 'Unified 8 operational feeds across COSMOS, MOP Master Data, and LOD-DOM',
-  },
-  {
-    id: 'project-budget-schedule',
-    name: 'Project, Budget & Schedule Management',
-    domain: 'logistics',
-    domainLabel: 'Logistics & Governance',
-    axisId: 'project-ba',
-    level: 90,
-    evidence: 'PMI & NASBA accredited; built and scaled extended field audit teams',
-  },
-  {
-    id: 'in-house-coding-web',
-    name: 'In-House Coding & Web Development',
-    domain: 'technical',
-    domainLabel: 'Technical Stack',
-    axisId: 'coding-web',
-    level: 88,
-    evidence: 'Custom logistics software development, mobile tracking, and RBAC security',
-  },
-  {
-    id: 'business-analysis-agile',
-    name: 'Business Analysis & Agile Requirements',
-    domain: 'logistics',
-    domainLabel: 'Logistics & Governance',
-    axisId: 'project-ba',
-    level: 88,
-    evidence: 'IIBA & PMI certified; cross-functional alignment across Sales, CS, and BC',
-  },
-  {
-    id: 'ftl-3pl-stock',
-    name: 'FTL Planning, 3PL & Stock Control',
-    domain: 'logistics',
-    domainLabel: 'Logistics & Governance',
-    axisId: 'logistics-distribution',
-    level: 88,
-    evidence: 'Primary Ankara RDC FTL load balancing, 3PL oversight, and import stock control',
-  },
-  {
-    id: 'sap-enterprise-erp',
-    name: 'SAP & Enterprise ERP Operations',
-    domain: 'technical',
-    domainLabel: 'Technical Stack',
-    axisId: 'enterprise-systems',
-    level: 86,
-    evidence: 'SAP operational reporting, purchasing simulations, and master data reconciliation',
-  },
-  {
-    id: 'ai-supply-chain-analytics',
-    name: 'AI-Assisted Supply Chain Decision Support',
-    domain: 'technical',
-    domainLabel: 'Technical Stack',
-    axisId: 'enterprise-systems',
-    level: 82,
-    evidence: 'TAÜ-DDUAM certified in AI supply chain management; REM region decision helpers',
   },
 ];
 

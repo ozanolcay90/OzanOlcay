@@ -6,7 +6,7 @@ import type { ThemeMode } from '../utils/theme';
 const NAV_LINKS = [
   { href: '#projects', label: 'Projects' },
   { href: '#experience', label: 'Experience' },
-  { href: '#skills', label: 'Skills' },
+  { href: '#methodology', label: 'Profile' },
   { href: '#credentials', label: 'Credentials' },
   { href: '#contact', label: 'Contact' },
 ] as const;

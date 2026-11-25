@@ -84,13 +84,13 @@ export function CertificatesSection() {
   return (
     <section
       id="credentials"
-      className="py-20 lg:py-24 border-b border-[#E4E6EA] dark:border-[#252A33] bg-white dark:bg-[#13161B] transition-colors duration-200"
+      className="py-20 lg:py-24 border-b border-[#E4E6EA] dark:border-[#252A33] bg-[#FAFAFA] dark:bg-[#0C0E11] transition-colors duration-200"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-[#E4E6EA] dark:border-[#252A33]">
           <div className="max-w-2xl">
             <p className="text-sm font-medium text-[#B5381A] dark:text-[#F06A4A] mb-2">
-              05. Verified Credentials
+              04. Verified Credentials
             </p>
             <h2
               className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7]"
