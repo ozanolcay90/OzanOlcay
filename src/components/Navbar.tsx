@@ -4,9 +4,9 @@ import { PROFILE } from '../data/portfolioData';
 import type { ThemeMode } from '../utils/theme';
 
 const NAV_LINKS = [
-  { href: '#projects', label: 'Projects' },
   { href: '#experience', label: 'Experience' },
-  { href: '#methodology', label: 'Profile' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#profile', label: 'Profile' },
   { href: '#credentials', label: 'Credentials' },
   { href: '#contact', label: 'Contact' },
 ] as const;

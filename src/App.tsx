@@ -6,8 +6,9 @@
 import { useEffect, useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
-import { ProjectsSection } from './components/ProjectsSection';
 import { ExperienceSection } from './components/ExperienceSection';
+import { ProjectsSection } from './components/ProjectsSection';
+import { ProfileSection } from './components/ProfileSection';
 import { CertificatesSection } from './components/CertificatesSection';
 import { ContactSection } from './components/ContactSection';
 import { PortfolioChatWidget } from './components/PortfolioChatWidget';
@@ -64,8 +65,9 @@ export default function App() {
       <Navbar theme={theme} onToggleTheme={handleToggleTheme} />
       <main id="main-content">
         <HeroSection />
-        <ProjectsSection />
         <ExperienceSection />
+        <ProjectsSection />
+        <ProfileSection />
         <CertificatesSection />
         <ContactSection />
       </main>

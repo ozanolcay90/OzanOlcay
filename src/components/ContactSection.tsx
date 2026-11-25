@@ -8,7 +8,7 @@ import {
 } from '../utils/portfolioLogic';
 
 const TOPIC_OPTIONS = [
-  'REM Region Logistics Opportunity',
+  'Career & Role Opportunities',
   'Supply Chain Digitalization & Control Tower',
   'LSP Audit & Operational Excellence',
   'Professional Collaboration',
@@ -74,11 +74,12 @@ export function ContactSection() {
                   className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7]"
                   style={{ textWrap: 'balance' }}
                 >
-                  Open to regional logistics leadership and digitalization projects.
+                  Open to logistics leadership and supply chain digitalization opportunities.
                 </h2>
                 <p className="mt-4 text-[15px] leading-relaxed text-[#424850] dark:text-[#C2C8D1]">
-                  Whether you are hiring for REM region logistics expertise, exploring data-backed
-                  control towers, or reviewing audit and LSP standards, reach out directly.
+                  Whether you are recruiting for logistics and operations roles, exploring
+                  data-backed control towers, or discussing audit and LSP quality standards, reach
+                  out directly.
                 </p>
               </div>
 
@@ -132,7 +133,7 @@ export function ContactSection() {
                   </p>
                   <div className="flex flex-col space-y-2">
                     <a
-                      href={PROFILE.interviewDeckPdf}
+                      href={PROFILE.cvPdf}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-medium text-[#111315] dark:text-[#F2F4F7] hover:text-[#B5381A] dark:hover:text-[#F06A4A] transition-colors"
@@ -141,7 +142,7 @@ export function ContactSection() {
                         className="w-4 h-4 text-[#B5381A] dark:text-[#F06A4A]"
                         aria-hidden="true"
                       />
-                      <span>Executive Profile Presentation (PDF)</span>
+                      <span>Full Profile &amp; CV (PDF)</span>
                     </a>
                     <a
                       href={PROFILE.certificatesArchiveUrl}
@@ -433,16 +434,22 @@ export function ContactSection() {
           </p>
           <div className="flex flex-wrap items-center gap-6">
             <a
+              href="#experience"
+              className="hover:text-[#111315] dark:hover:text-[#F2F4F7] transition-colors"
+            >
+              Experience
+            </a>
+            <a
               href="#projects"
               className="hover:text-[#111315] dark:hover:text-[#F2F4F7] transition-colors"
             >
               Projects
             </a>
             <a
-              href="#experience"
+              href="#profile"
               className="hover:text-[#111315] dark:hover:text-[#F2F4F7] transition-colors"
             >
-              Experience
+              Profile
             </a>
             <a
               href="#credentials"
@@ -451,12 +458,12 @@ export function ContactSection() {
               Credentials
             </a>
             <a
-              href={PROFILE.interviewDeckPdf}
+              href={PROFILE.cvPdf}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#111315] dark:hover:text-[#F2F4F7] transition-colors"
             >
-              Profile PDF
+              CV / Profile PDF
             </a>
           </div>
         </div>

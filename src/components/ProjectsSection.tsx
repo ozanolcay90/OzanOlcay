@@ -35,13 +35,13 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-20 lg:py-24 border-b border-[#E4E6EA] dark:border-[#252A33] bg-white dark:bg-[#13161B] transition-colors duration-200"
+      className="py-20 lg:py-24 border-b border-[#E4E6EA] dark:border-[#252A33] bg-[#FAFAFA] dark:bg-[#0C0E11] transition-colors duration-200"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-[#E4E6EA] dark:border-[#252A33]">
           <div className="max-w-2xl">
             <p className="text-sm font-medium text-[#B5381A] dark:text-[#F06A4A] mb-2">
-              01. Selected Work
+              02. Key Projects &amp; Achievements
             </p>
             <h2
               className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7]"
@@ -68,7 +68,7 @@ export function ProjectsSection() {
                 key={project.id}
                 className={`${
                   isFeatured ? 'lg:col-span-7' : 'lg:col-span-5'
-                } bg-[#FAFAFA] dark:bg-[#0C0E11] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl p-7 lg:p-8 flex flex-col justify-between transition-colors duration-150 hover:border-[#C5C9D0] dark:hover:border-[#3A4150]`}
+                } bg-white dark:bg-[#13161B] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl p-7 lg:p-8 flex flex-col justify-between transition-colors duration-150 hover:border-[#C5C9D0] dark:hover:border-[#3A4150]`}
               >
                 <div>
                   <p className="text-xs font-medium text-[#525860] dark:text-[#949CA8] mb-3">
@@ -215,13 +215,13 @@ export function ProjectsSection() {
 
           <div className="lg:col-span-6">
             <h3 className="font-display text-lg font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7] mb-6">
-              REM Region Strategic Focus
+              Core Operational Approach
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {STRATEGIC_PILLARS.map((pillar) => (
                 <div
                   key={pillar.id}
-                  className="bg-[#FAFAFA] dark:bg-[#0C0E11] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl p-6"
+                  className="bg-white dark:bg-[#13161B] border border-[#E4E6EA] dark:border-[#252A33] rounded-xl p-6"
                 >
                   <p className="font-mono text-xs font-medium text-[#B5381A] dark:text-[#F06A4A] tabular-nums">
                     {pillar.index}.

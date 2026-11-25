@@ -53,9 +53,10 @@ export const STARTER_PROMPTS: StarterPrompt[] = [
     mode: 'ask',
   },
   {
-    id: 'ask-rem-vision',
-    label: 'REM Region Logistics Expert vision',
-    prompt: 'What is Ozan’s strategic roadmap for scaling Türkiye control towers to the REM region?',
+    id: 'ask-methodology',
+    label: 'Field methodology & digitalization vision',
+    prompt:
+      'How does Ozan combine field auditing, in-house coding, and AI to improve distribution and LSP quality?',
     mode: 'ask',
   },
   {
@@ -67,9 +68,9 @@ export const STARTER_PROMPTS: StarterPrompt[] = [
   },
   {
     id: 'compare-jd-digital',
-    label: 'Fit for Regional Control Tower Lead',
+    label: 'Fit for Control Tower / Digitalization Lead',
     prompt:
-      'Compare Ozan’s portfolio against a Regional Logistics Digitalization & Control Tower Lead role requiring Power BI, RPA, 3PL/LSP quality auditing, stakeholder management, and Six Sigma.',
+      'Compare Ozan’s CV against a Logistics Digitalization & Control Tower Lead role requiring Power BI, RPA, 3PL/LSP quality auditing, stakeholder management, and Six Sigma.',
     mode: 'compare',
   },
   {
@@ -80,10 +81,10 @@ export const STARTER_PROMPTS: StarterPrompt[] = [
     mode: 'compare',
   },
   {
-    id: 'compare-rem-readiness',
-    label: 'Readiness for REM Region Expert',
+    id: 'compare-leadership-readiness',
+    label: 'Senior logistics role readiness',
     prompt:
-      'Evaluate Ozan’s strengths, quantified proof points, and any potential interview areas to explore for a REM Region Logistics Expert role.',
+      'Evaluate Ozan’s strengths, quantified proof points, and leadership readiness for a Senior Logistics or Supply Chain Digitalization role.',
     mode: 'compare',
   },
 ];
@@ -196,7 +197,7 @@ export function buildPortfolioKnowledgeBase(extraNotes?: string): string {
     `## Field Challenges & Operational Learnings`,
     `- Challenges Overcome: ${CHALLENGES_AND_LEARNINGS.challenges.join('; ')}`,
     `- Core Learnings: ${CHALLENGES_AND_LEARNINGS.learnings.join('; ')}`,
-    `## Strategic Pillars (REM Region Logistics Expert)\n${pillarBlocks}`,
+    `## Core Operational & Strategic Pillars\n${pillarBlocks}`,
     `## Awards & Recognitions\n${recognitionBlocks}`,
     `## Verified Credentials (${CERTIFICATES.length} total)\n${certBlocks}`,
   ];
@@ -223,8 +224,8 @@ export function buildSystemInstruction(mode: ChatMode, knowledgeBase: string): s
         ].join('\n');
 
   return [
-    `You are Ozan Olcay's dedicated Portfolio & Career Intelligence Assistant embedded directly inside his executive portfolio website.`,
-    `Your job is to help recruiters, hiring managers, B/S/H/ leaders, and peers explore Ozan's work deeply and compare his systems or qualifications against specific roles.`,
+    `You are Ozan Olcay's dedicated CV & Portfolio Intelligence Assistant embedded directly inside his interactive Curriculum Vitae and portfolio website.`,
+    `Your job is to help recruiters, hiring managers, logistics leaders, and peers explore Ozan's work deeply and compare his systems or qualifications against any role.`,
     ``,
     `STRICT RULES:`,
     `1. Ground EVERY factual claim strictly in the Verified Portfolio Database below. Never invent employers, dates, metrics, certifications, software tools, or salaries not present in the database.`,

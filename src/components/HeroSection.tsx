@@ -14,13 +14,18 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
           <div className="lg:col-span-7 flex flex-col justify-between py-1">
             <div>
-              <p className="text-sm font-medium text-[#525860] dark:text-[#949CA8] mb-5">
-                <span>{PROFILE.targetFocus}</span>
-                <span aria-hidden="true" className="mx-2 text-[#C5C9D0] dark:text-[#474F5E]">
-                  ·
-                </span>
-                <span>{PROFILE.location}</span>
-              </p>
+              <div className="mb-5 space-y-1">
+                <p className="font-mono text-xs uppercase tracking-[0.14em] font-medium text-[#B5381A] dark:text-[#F06A4A]">
+                  Curriculum Vitae
+                </p>
+                <p className="text-sm font-medium text-[#525860] dark:text-[#949CA8]">
+                  <span>{PROFILE.targetFocus}</span>
+                  <span aria-hidden="true" className="mx-2 text-[#C5C9D0] dark:text-[#474F5E]">
+                    ·
+                  </span>
+                  <span>{PROFILE.location}</span>
+                </p>
+              </div>
 
               <h1
                 className="font-display font-bold tracking-tight text-[#111315] dark:text-[#F2F4F7] leading-[1.08] max-w-2xl"
@@ -47,21 +52,21 @@ export function HeroSection() {
 
             <div className="mt-9 pt-6 border-t border-[#E4E6EA] dark:border-[#252A33] flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3.5">
               <a
-                href="#projects"
+                href="#experience"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-white dark:text-[#0C0E11] bg-[#111315] dark:bg-[#F2F4F7] rounded-md hover:bg-[#272B30] dark:hover:bg-[#DCE0E6] transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D94826] dark:focus-visible:outline-[#F06A4A]"
               >
-                <span>Explore Case Studies</span>
+                <span>View Work Experience</span>
                 <ArrowDownRight className="w-4 h-4" aria-hidden="true" />
               </a>
 
               <a
-                href={PROFILE.interviewDeckPdf}
+                href={PROFILE.cvPdf}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-[#111315] dark:text-[#F2F4F7] bg-white dark:bg-[#13161B] border border-[#D4D8DF] dark:border-[#2F3542] rounded-md hover:border-[#111315] dark:hover:border-[#6C7485] transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D94826] dark:focus-visible:outline-[#F06A4A]"
               >
                 <FileText className="w-4 h-4 text-[#B5381A] dark:text-[#F06A4A]" aria-hidden="true" />
-                <span>Executive Profile Deck (PDF)</span>
+                <span>Full Profile / CV (PDF)</span>
               </a>
             </div>
           </div>

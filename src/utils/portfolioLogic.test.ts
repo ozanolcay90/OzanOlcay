@@ -58,8 +58,8 @@ test('validateInquiry catches invalid fields and approves complete submissions',
   const validResult = validateInquiry({
     name: 'Mert Kaya',
     email: 'mert.kaya@example.com',
-    organization: 'BSH REM Region',
-    topic: 'REM Region Logistics Opportunity',
+    organization: 'BSH Global Logistics',
+    topic: 'Career & Role Opportunities',
     message: 'We would love to discuss your experience building L.O.T. and Sirius.',
   });
   assert.equal(validResult.valid, true);

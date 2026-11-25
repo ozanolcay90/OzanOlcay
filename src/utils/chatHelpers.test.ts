@@ -6,6 +6,7 @@ import {
   parseInlineMarkdown,
   parseMarkdownBlocks,
   sanitizeChatHistory,
+  STARTER_PROMPTS,
 } from './chatHelpers';
 
 test('buildPortfolioKnowledgeBase includes core metrics, all 16 L.O.T. datasets, and custom notes', () => {
@@ -24,6 +25,11 @@ test('buildPortfolioKnowledgeBase includes core metrics, all 16 L.O.T. datasets,
   assert.match(kb, /Reserve Officer \(Second Lieutenant\)/);
   assert.match(kb, /1st Place On Training Camp/);
   assert.match(kb, /Custom note: Fluent in Python and SQL\./);
+  assert.doesNotMatch(kb, /rem\s+region/i);
+  for (const starter of STARTER_PROMPTS) {
+    assert.doesNotMatch(starter.label, /rem\s+region/i);
+    assert.doesNotMatch(starter.prompt, /rem\s+region/i);
+  }
 });
 
 test('buildSystemInstruction adapts instructions for ask vs compare mode', () => {

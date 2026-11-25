@@ -541,8 +541,8 @@ export function PortfolioChatWidget() {
                         </strong>{' '}
                         systems (<span className="font-mono text-xs">Sirius</span> &amp;{' '}
                         <span className="font-mono text-xs">L.O.T.</span>), B/S/H/ career
-                        trajectory, 11 verified credentials, or REM region roadmap—in English or
-                        Türkçe.
+                        trajectory, education, 11 verified credentials, or operational
+                        methodology—in English or Türkçe.
                       </>
                     ) : (
                       <>

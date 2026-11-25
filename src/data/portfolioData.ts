@@ -82,7 +82,7 @@ export const PROFILE = {
   location: 'Ankara & Çerkezköy, Türkiye',
   email: 'ozanolcay90@gmail.com',
   portraitPath: '/assets/ozan-portrait.jpg',
-  interviewDeckPdf: '/assets/aistudio/Interview_for_REM_Region_Logistics_Expert_98adc47e.pdf',
+  cvPdf: '/assets/aistudio/Ozan_Olcay_CV_893ce859.pdf',
   certificatesArchiveUrl:
     'https://drive.google.com/drive/folders/1_IiDiDvj4-KIJrXgSC1JMSAU0HIVCzFc?usp=sharing',
   linkedinSearchUrl: 'https://www.linkedin.com/search/results/all/?keywords=Ozan%20Olcay%20BSH',
@@ -306,7 +306,7 @@ export const STRATEGIC_PILLARS: StrategicPillar[] = [
       'Building transparent, data-backed digital monitoring systems',
       'Tracking operational improvements continuously in real time',
       'Embedding hands-on training during active working periods',
-      'Scaling proven Turkish distribution solutions to the REM region',
+      'Scaling proven local distribution digital solutions across multi-site logistics networks',
     ],
   },
   {
