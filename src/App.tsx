@@ -10,6 +10,7 @@ import { ProjectsSection } from './components/ProjectsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { CertificatesSection } from './components/CertificatesSection';
 import { ContactSection } from './components/ContactSection';
+import { PortfolioChatWidget } from './components/PortfolioChatWidget';
 import {
   getNextTheme,
   resolveInitialTheme,
@@ -68,6 +69,7 @@ export default function App() {
         <CertificatesSection />
         <ContactSection />
       </main>
+      <PortfolioChatWidget />
     </div>
   );
 }
